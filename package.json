@@ -1,0 +1,22 @@
+{
+  "name": "github_profiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechFring/github_profiles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechFring/github_profiles/issues"
+  },
+  "homepage": "https://github.com/TechFring/github_profiles#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
