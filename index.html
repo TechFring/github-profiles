@@ -15,9 +15,26 @@
     <!-- AlertifyJs -->
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/alertify.min.css">
     <link rel="stylesheet" href="node_modules/alertifyjs/build/css/themes/default.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="border border-danger">
+    <section class="container">
+        <div class="d-flex">
+            <form class="form-inline mx-auto">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Username">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark" type="submit" title="search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
