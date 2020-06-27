@@ -2,7 +2,7 @@ body, html {
     height: 100%;
 }
 
-section img {
+.avatar {
     height: 188px;
     width: 188px;
 }
