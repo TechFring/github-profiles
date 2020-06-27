@@ -15,7 +15,7 @@ function searchProfile(name) {
             $('#data').find('.card-header').text(data.login);
             $('#data').find('img').attr('src', data.avatar_url);
             $('#data').find('span:first').text(`${data.followers} followers`);
-            $('#data').find('span:odd').text(`${data.following} followers`);
+            $('#data').find('span:odd').text(`${data.following} following`);
             $('#data').find('span:last').text(`${data.public_repos} repositories`);
         },
         error: () => {
