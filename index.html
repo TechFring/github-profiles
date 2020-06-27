@@ -28,7 +28,7 @@
                     <input type="text" class="form-control" placeholder="Username" required>
                     <div class="input-group-append">
                         <button class="btn btn-outline-dark" type="submit">
-                            <i class="fas fa-search"></i>
+                            <i id="spn" class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
         </div>
     </section>
 
-    <div id="load" class="container mt-5 d-none">
+    <div id="loadData" class="container mt-5 d-none">
         <img src="images/skeleton.gif" class="img-fluid">
     </div>
 
@@ -54,6 +54,11 @@
         </div>
     </section>
 
+    <div id="loadRepositories" class="container mt-5 d-none">
+        <img src="images/skeleton.gif" class="img-fluid">
+    </div>
+
+    <section id="repositories"></section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -64,6 +69,7 @@
     <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
 
     <script src="js/events.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/requests.js"></script>
 </body>
 
