@@ -6,3 +6,7 @@ body, html {
     height: 188px;
     width: 188px;
 }
+
+.dropdown-menu .dropdown-item:active {
+    background-color: #000;
+}
