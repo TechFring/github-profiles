@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="border border-danger">
-    <section class="container">
-        <div class="d-flex">
-            <form class="form-inline mx-auto">
+<body>
+    <section id="search" class="container d-flex border-bottom">
+        <div class="mx-auto mt-5 mb-4">
+            <form class="form-inline">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" required>
                     <div class="input-group-append">
-                        <button class="btn btn-outline-dark" type="submit" title="search">
+                        <button class="btn btn-outline-dark" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -36,13 +36,34 @@
         </div>
     </section>
 
+
+    <section id="data" class="container mt-5">
+        <div class="card text-center">
+            <div class="card-header text-muted">
+                Name
+            </div>
+            <div class="card-body">
+                <img class="img-fluid">
+            </div>
+            <div class="card-footer">
+                <i class="fas fa-user-friends"></i> 3 followers |
+                <i class="fas fa-people-arrows"></i> 4 following |
+                <i class="fas fa-sort-amount-up"></i> 3 repositories
+            </div>
+        </div>
+    </section>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/popper.min.js"></script>
+    <!-- <script src="node_modules/popper.js/dist/popper.min.js"></script> -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="node_modules/alertifyjs/build/alertify.min.js"></script>
+
+    <script src="js/events.js"></script>
+    <script src="js/requests.js"></script>
 </body>
 
 </html>
