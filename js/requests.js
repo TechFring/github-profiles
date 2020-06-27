@@ -5,12 +5,14 @@ function searchProfile(username) {
         dataType: 'json',
         beforeSend: () => {
             toggleClassSpinner();
+            $('#repositories').parent().removeClass('h-75');
             $('#spn').attr('role', 'status');
             $('#data').append('<img src="images/skeleton.gif" class="img-fluid">');
         },
         success: data => {
-            console.log(data);
             toggleClassSpinner();
+            $('#repositories').parent().removeClass('h-75');
+
             $('#spn').attr('role', '');
 
             $('#data').empty();
@@ -37,6 +39,7 @@ function searchProfile(username) {
         },
         error: () => {
             toggleClassSpinner();
+            $('#repositories').parent().addClass('h-75');
             $('#spn').attr('role', '');
             $('#data').empty();
             alertify.error('Profile not found');
@@ -54,6 +57,7 @@ function searchRepositories(username) {
         },
         success: data => {
             $('#repositories').empty();
+            $('#repositories').parent().find('p').remove();
 
             data.forEach((v, i) => {
                 if (i < 6) {
@@ -66,7 +70,29 @@ function searchRepositories(username) {
                                 <div class="card-body">
                                     <p>Description: ${v.description}</p>
                                     <p>Language: ${v.language}</p>
-                                    <a class="btn btn-outline-dark" href="${v.html_url}" target="_blank">Go to repository</a>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-outline-dark dropdown-toggle"
+                                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Options
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="${v.html_url}" target="_blank">
+                                                Go to repository <i class="fas fa-link"></i>
+                                            </a>
+    
+                                            <a class="dropdown-item clone" href="#">
+                                                Clone <i class="fas fa-download"></i>
+                                            </a>
+
+                                            <div class="dropdown-divider"></div>
+
+                                            <span class="dropdown-item">
+                                                <input type="text" class="form-control url" value="${v.html_url}" readonly>
+                                            </span>
+                                        </div>
+                                    </div>                                  
                                 </div>
                                 <div class="card-footer text-center">
                                     <span class="text-muted">${v.name}</span>
@@ -77,7 +103,7 @@ function searchRepositories(username) {
                 }
             });
 
-            $('#repositories').parent().prepend('<p class="lead">Repositories</p>');
+            $('#repositories').parent().prepend('<p class="lead">Some repositories</p>');
         },
         error: error => {
             $('#repositories').empty();
