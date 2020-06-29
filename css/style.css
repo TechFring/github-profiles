@@ -9,5 +9,10 @@ body, html {
 }
 
 .dropdown-menu .dropdown-item:active {
-    background-color: #000;
+    background-color: #FFF;
+    color: #343a40;
+}
+
+.darkmode-dropdown .dropdown-item:hover {
+    background-color: #343a40;
 }

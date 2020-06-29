@@ -5,18 +5,19 @@ function searchProfile(username) {
         dataType: 'json',
         beforeSend: () => {
             toggleClassSpinner();
-            $('#repositories').parent().removeClass('h-75');
-            $('#spn').attr('role', 'status');
-            $('#data').append('<img src="images/skeleton.gif" class="img-fluid">');
+            $('#data').addClass('h-25');
+            $('#data').empty();
+            $('#data').append(`
+            <div class="d-flex h-100 align-items-center">
+                <strong>Loading...</strong>
+                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+            </div>
+            `);
         },
         success: data => {
             toggleClassSpinner();
-            $('#repositories').parent().removeClass('h-75');
-
-            $('#spn').attr('role', '');
-
+            $('#data').removeClass('h-25');
             $('#data').empty();
-
             $('#data').append(
                 `<div class="card text-center">
                     <div class="card-header text-muted">
@@ -36,11 +37,11 @@ function searchProfile(username) {
                     </div>
                 </div>`
             );
+            $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
         },
         error: () => {
             toggleClassSpinner();
-            $('#repositories').parent().addClass('h-75');
-            $('#spn').attr('role', '');
+            $('#data').addClass('h-25');
             $('#data').empty();
             alertify.error('Profile not found');
         }
@@ -53,12 +54,21 @@ function searchRepositories(username) {
         url: `https://api.github.com/users/${username}/repos`,
         dataType: 'json',
         beforeSend: () => {
-            $('#repositories').append('<img src="images/skeleton.gif" class="img-fluid">');
-        },
-        success: data => {
+            $('#repositories').parent().addClass('h-50');
             $('#repositories').empty();
             $('#repositories').parent().find('p').remove();
-
+            $('#data').append(`
+            <div class="d-flex h-100 align-items-center">
+                <strong>Loading...</strong>
+                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+            </div>
+            `);
+        },
+        success: data => {
+            if (data.length > 0) {
+                $('#repositories').parent().removeClass('h-50');
+            }
+            $('#repositories').empty();
             data.forEach((v, i) => {
                 if (i < 6) {
                     $('#repositories').append(
@@ -72,7 +82,7 @@ function searchRepositories(username) {
                                     <p>Language: ${v.language}</p>
 
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-outline-dark dropdown-toggle"
+                                        <button type="button" class="btn btn-primary dropdown-toggle"
                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Options
                                         </button>
@@ -102,11 +112,13 @@ function searchRepositories(username) {
                     );
                 }
             });
-
             $('#repositories').parent().prepend('<p class="lead">Some repositories</p>');
+            $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
         },
         error: error => {
+            $('#repositories').parent().addClass('h-50');
             $('#repositories').empty();
+            $('#repositories').parent().find('p').remove();
         }
     });
 }
