@@ -43,6 +43,7 @@ function searchProfile(username) {
             toggleClassSpinner();
             $('#data').addClass('h-25');
             $('#data').empty();
+            $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
             alertify.error('Profile not found');
         }
     });
@@ -119,6 +120,7 @@ function searchRepositories(username) {
             $('#repositories').parent().addClass('h-50');
             $('#repositories').empty();
             $('#repositories').parent().find('p').remove();
+            $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
         }
     });
 }
