@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    getThemePreferences();
     $('header input').val('TechFring');
     $('header form').trigger('submit');
 });
@@ -13,12 +14,12 @@ $('header form').on('submit', e => {
 
 $('#repositories').on('click', '.clone', e => {
     e.preventDefault();
-
     $(e.target).parent().find('.url').select();
     document.execCommand('copy');
     alertify.success('Copied');
 });
 
 $('#darkmode').on('change', () => {
+    setThemePreferences();
     $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
 });

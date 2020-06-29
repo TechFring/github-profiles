@@ -3,6 +3,16 @@ function toggleClassSpinner() {
     $('#spn').toggleClass('spinner-border spinner-border-sm');
 }
 
+function getThemePreferences() {
+    let theme = localStorage.getItem('theme');
+    $('#darkmode').prop('checked', theme == 'darkmode');
+}
+
+function setThemePreferences() {
+    let theme = $('#darkmode').is(':checked') ? 'darkmode' : 'default';
+    localStorage.setItem('theme', theme);
+}
+
 function darkModeTheme() {
     $('body').addClass('bg-dark text-light');
     $('.navbar').removeClass('navbar-light bg-light').addClass('navbar-dark bg-dark');
