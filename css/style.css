@@ -5,6 +5,7 @@ body, html {
 .avatar {
     height: 188px;
     width: 188px;
+    border-radius: 90px;
 }
 
 .dropdown-menu .dropdown-item:active {
