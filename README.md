@@ -3,10 +3,10 @@
 ## Aplicação de busca de perfis no GitHub
 Busca perfis no GitHub e lista 6 repositórios do perfil encontrado, a aplicação possui recursos de responsividade e darkmode (modo escuro). A ideia base da aplicação foi retirada do repositório [app-ideias](https://github.com/florinpop17/app-ideas)
 
-### Comandos para instalar as dependências da aplicação
+### Comando para instalar as dependências da aplicação
 No terminal execute
 ```
-npm i pkg.json
+npm i
 ```
 
 ### Assista ao vídeo da aplicação em funcionamento
