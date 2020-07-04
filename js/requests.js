@@ -19,7 +19,7 @@ function searchProfile(username) {
             $('#data').removeClass('h-25');
             $('#data').empty();
             $('#data').append(
-                `<div class="card text-center">
+                `<div class="card text-center d-none">
                     <div class="card-header text-muted">
                         <a href="${data.html_url}" target="_blank">
                             <span>${data.login} <i class="fas fa-link"></i></span>                    
@@ -37,6 +37,9 @@ function searchProfile(username) {
                     </div>
                 </div>`
             );
+            $.each($('#data').find('div.card'), (index, value) => {
+                $(value).fadeIn(800).removeClass('d-none');
+            });
             $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
         },
         error: () => {
@@ -73,7 +76,7 @@ function searchRepositories(username) {
             data.forEach((v, i) => {
                 if (i < 6) {
                     $('#repositories').append(
-                        `<div class="col-md-6 col-lg-4 mb-4">
+                        `<div class="col-md-6 col-lg-4 mb-4 d-none">
                             <div class="card">
                                 <div class="card-header text-center">
                                     <i class="fas fa-star"></i> ${v.stargazers_count}
@@ -112,6 +115,9 @@ function searchRepositories(username) {
                         </div>`
                     );
                 }
+            });
+            $.each($('#repositories').find('div.col-md-6'), (index, value) => {
+                $(value).fadeIn(800).removeClass('d-none');
             });
             $('#repositories').parent().prepend('<p class="lead">Some repositories</p>');
             $('#darkmode').is(':checked') ? darkModeTheme() : defaultTheme();
